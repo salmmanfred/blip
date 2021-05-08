@@ -1,0 +1,26 @@
+PR text
+
+MKV:S tek lol
+
+
+MKV:I des 1
+
+PR #MEM:des
+
+ADD #MEM:des 2
+
+PR #MEM:des
+
+PR #MEM:tek
+
+IF #MEM:tek == #MEM:tek
+THEN
+PR true
+STOP
+
+FN xxs
+
+PR crap
+
+STOP_FN
+RUN xxs
