@@ -9,7 +9,7 @@ fn main() {
     
     let x = &send[1];
     if x == "-h" || x == "-help"{
-        println!("help text goes here");
+        println!("If you consider using this here are some emergency hotlines you should call: 911, 112, 999");
 
     }else{
         let file = openfile::readFileLines(&x);
