@@ -15,7 +15,7 @@ mod inter;
 
 fn main() {
     let send: Vec<String> = env::args().collect();
-
+    println!("<Blip 2021 GPL-v3.0>");
     let x = &send[1];
     if x == "-h" || x == "-help" {
         println!("If you consider using this here are some emergency hotlines you should call: 911, 112, 999");
@@ -25,6 +25,10 @@ fn main() {
 
         let now = Instant::now();
         inter::run(file);
-        println!("Extime: {}", now.elapsed().as_millis());
+        if send.len() > 2{
+            if &send[2] == "-d" || &send[2] == "-debug"{
+                println!("Extime: {}", now.elapsed().as_millis());
+            }
+        }
     }
 }
