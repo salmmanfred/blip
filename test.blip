@@ -1,8 +1,12 @@
-PR text
+INC STD std
+INC ./test2.blip
+
+PR text x
 
 MKV:S tek lol
-
-
+MKV:S lol tek
+GET #MEM:lol
+PR #MEM:lol
 MKV:I des 1
 
 PR #MEM:des
@@ -19,8 +23,13 @@ PR true
 STOP
 
 FN xxs
-
+MKV:S lel lel
+DEL #MEM:lel
 PR crap
 
 STOP_FN
 RUN xxs
+LOOP 1 xxs 
+RUN test #MEM:tek
+LOOP 1 test2
+LOOP 1 test #MEM:tek
