@@ -1,0 +1,19 @@
+PR hello world
+IF x == S
+PR it is
+IF_STOP
+PR lol what 2
+MKV:S x 00000000000000ds0a0d0a0sad0a0djjjf
+
+
+FN test I S
+PR #MEM:1
+
+DEL #MEM:0
+DEL #MEM:1
+
+FN_STOP
+
+
+LOOP test 0 #MEM:x x
+DEL #MEM:x

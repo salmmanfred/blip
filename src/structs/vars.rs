@@ -67,4 +67,12 @@ impl var {
             }
         }
     }
+    pub fn dump(&mut self){
+        for x in self.string_name.clone(){
+            println!("{}",x);
+        }
+        for x in self.is_name.clone(){
+            println!("{}",x);
+        }
+    }
 }

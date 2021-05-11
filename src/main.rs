@@ -11,6 +11,7 @@ mod vars;
 #[path = "small/small.rs"]
 mod small;
 
+mod parser;
 mod inter;
 
 fn main() {
@@ -22,9 +23,10 @@ fn main() {
     } else {
         let mut file = openfile::readFileLines(&x);
         file.retain(|x| x != "");
-
+        let par = parser::parser(file);
         let now = Instant::now();
-        inter::run(file);
+        //inter::run(file);
+        inter::inter([0,par.parsed_data.len()],par);
         if send.len() > 2{
             if &send[2] == "-d" || &send[2] == "-debug"{
                 println!("Extime: {}", now.elapsed().as_millis());
