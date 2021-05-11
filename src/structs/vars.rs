@@ -1,27 +1,26 @@
-
 #[derive(Clone)]
-pub struct var {
+pub struct Var {
     pub string: Vec<String>,
     pub string_name: Vec<String>,
     // ints and then strings ^
     pub is: Vec<String>,
     pub is_name: Vec<String>,
 }
-impl var {
-    pub fn new() -> var {
-        var {
+impl Var {
+    pub fn new() -> Var {
+        Var {
             string: Vec::new(),
             string_name: Vec::new(),
             is: Vec::new(),
             is_name: Vec::new(),
         }
     }
-    //make a new var thats a string the only 2 variables in this language
+    //make a new Var thats a string the only 2 variables in this language
     pub fn new_var_string(&mut self, name: &str, value: &str) {
         self.string.push(value.to_string());
         self.string_name.push(name.to_string());
     }
-    // get a var from memory #MEM:var
+    // get a Var from memory #MEM:var
     pub fn get_var(&mut self, name: String) -> String {
         for x in 0..self.string_name.len() {
             if self.string_name[x] == name {
@@ -34,14 +33,14 @@ impl var {
             }
         }
         panic!("no var");
-        "".to_string()
+        //  "".to_string()
     }
     //make a new variable
     pub fn new_var_i(&mut self, name: &str, value: &str) {
         self.is.push(value.to_string());
         self.is_name.push(name.to_string());
     } //update the variable
-    pub fn up_var(&mut self, name: &str, new_val: &str) {
+    pub fn _up_var(&mut self, name: &str, new_val: &str) {
         for x in 0..self.string_name.len() {
             if self.string_name[x] == name {
                 self.string[x] = new_val.to_string();
@@ -67,12 +66,12 @@ impl var {
             }
         }
     }
-    pub fn dump(&mut self){
-        for x in self.string_name.clone(){
-            println!("{}",x);
+    pub fn _dump(&mut self) {
+        for x in self.string_name.clone() {
+            println!("{}", x);
         }
-        for x in self.is_name.clone(){
-            println!("{}",x);
+        for x in self.is_name.clone() {
+            println!("{}", x);
         }
     }
 }

@@ -1,4 +1,4 @@
-use crate::vars::var; 
+use crate::vars::Var;
 
 pub fn get_var_name(string: String) -> Option<String> {
     let a = string.split(":").collect::<Vec<&str>>();
@@ -7,11 +7,11 @@ pub fn get_var_name(string: String) -> Option<String> {
     }
     None
 }
-pub fn get_value(string: String,vars: var ) -> String{
+pub fn get_value(string: String, vars: Var) -> String {
     let mut vars = vars;
     let a = string.split(":").collect::<Vec<&str>>();
     if a[0] == "#MEM" {
-        return vars.get_var(a[1].to_string())
+        return vars.get_var(a[1].to_string());
     }
-    return string
+    return string;
 }

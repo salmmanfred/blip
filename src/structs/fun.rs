@@ -1,4 +1,4 @@
-use crate::inter;
+/*use crate::inter;
 use crate::vars::var;
 use crate::small;
 pub struct fun {
@@ -20,7 +20,7 @@ impl fun {
                     find = false;
                     split.remove(0);
                     split.remove(0);
-                    
+
 
                     let mut split: Vec<String> = split.iter().map(|x|x.to_string()).collect();
                     //split.retain(|x| x != "|");
@@ -68,12 +68,12 @@ impl fun {
                 vars.new_var_i(&x.to_string(),&small::get_value(args[x].clone(),vars.clone()));
             }
             if self.n_arg[xx][x] == "S".to_string(){
-                
+
                 vars.new_var_string(&x.to_string(),&small::get_value(args[x].clone(),vars.clone()));
 
             }
         }
-        inter::parse_run(
+        /*inter::parse_run(
             [
                 self.get_first(name) as i64 + 1 as i64,
                 self.get_last(name) as i64,
@@ -81,13 +81,13 @@ impl fun {
             text,
             vars,
             self,
-        );
+        );*/
 
     }
     pub fn run_loop(&mut self, name: &str, text: Vec<String>, vars: &mut var, max_laps: i64,args: Vec<String>) {
         let mut laps = 0;
         let xx = self.ppos(name);
-        
+
         while laps <= max_laps {
             for x in 0..self.n_arg[xx].len(){
                 if self.n_arg[xx][x] == "I".to_string(){
@@ -96,14 +96,14 @@ impl fun {
 
                 }
                 if self.n_arg[xx][x] == "S".to_string(){
-                    
+
                     vars.new_var_string(&x.to_string(),&small::get_value(args[x].clone(),vars.clone()));
 
-    
+
                 }
             }
             let text = text.clone();
-            inter::parse_run(
+            /*inter::parse_run(
                 [
                     self.get_first(name) as i64 + 1 as i64,
                     self.get_last(name) as i64,
@@ -111,7 +111,7 @@ impl fun {
                 text,
                 vars,
                 self,
-            );
+            );*/
             laps += 1;
             if max_laps == 0 {
                 laps -= 1;
@@ -128,3 +128,4 @@ impl fun {
         }
     }
 }
+*/

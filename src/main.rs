@@ -11,8 +11,8 @@ mod vars;
 #[path = "small/small.rs"]
 mod small;
 
-mod parser;
 mod inter;
+mod parser;
 
 fn main() {
     let send: Vec<String> = env::args().collect();
@@ -26,9 +26,9 @@ fn main() {
         let par = parser::parser(file);
         let now = Instant::now();
         //inter::run(file);
-        inter::inter([0,par.parsed_data.len()],par);
-        if send.len() > 2{
-            if &send[2] == "-d" || &send[2] == "-debug"{
+        inter::inter([0, par.parsed_data.len()], par);
+        if send.len() > 2 {
+            if &send[2] == "-d" || &send[2] == "-debug" {
                 println!("Extime: {}", now.elapsed().as_millis());
             }
         }
