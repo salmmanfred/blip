@@ -7,7 +7,6 @@ use crate::parser::{Command, Parse};
 use crate::small;
 use openfile;
 
-
 pub fn inter(size: [usize; 2], code: Parse) {
     let mut vars = Var::new();
     inter_back(size, code, &mut vars)
@@ -105,10 +104,13 @@ pub fn inter_back(size: [usize; 2], code: Parse, vars: &mut Var) {
                 }
             },
             Command::MkvS(a) => vars.new_var_string(&a[0], &a[1]),
-            Command::MakeFile (a,b) => {
-                openfile::writeFile(&small::get_value(a,vars.clone()),&small::get_value(b,vars.clone()));
+            Command::MakeFile(a, b) => {
+                openfile::writeFile(
+                    &small::get_value(a, vars.clone()),
+                    &small::get_value(b, vars.clone()),
+                );
             }
-            Command::MakeFolder (a) =>{
+            Command::MakeFolder(a) => {
                 use std::fs;
 
                 fn make_dir(folder: String) -> std::io::Result<()> {

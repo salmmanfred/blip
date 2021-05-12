@@ -21,7 +21,7 @@ pub enum Command {
     Change([String; 2]),
     Delete(String),
 
-    MakeFile(String,String),
+    MakeFile(String, String),
     MakeFolder(String),
 }
 #[derive(Clone)]
@@ -184,20 +184,20 @@ pub fn parser(text: Vec<String>) -> Parse {
                 ))
             }
 
-            "MKFO"=>{
-                if line.len() > 2{
+            "MKFO" => {
+                if line.len() > 2 {
                     panic!("MKFO only takes one argument");
                 }
                 parsed.push(Command::MakeFolder(line[1].to_string()))
             }
-            "MKFI" =>{
+            "MKFI" => {
                 let name = line[1].to_string();
                 line.remove(0);
                 line.remove(0);
 
                 let line: Vec<String> = line.iter().map(|x| x.to_string()).collect();
                 let line = line.join(" ");
-                parsed.push(Command::MakeFile(name,line))
+                parsed.push(Command::MakeFile(name, line))
             }
             "DEL" => parsed.push(Command::Delete(line[1].to_string())),
             "STOP" | "IF_STOP" | "FN_STOP" => parsed.push(Command::Misc(Misc::Stop)),
