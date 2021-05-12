@@ -5,6 +5,7 @@ use crate::vars::Var;
 //use std::io::{self};
 use crate::parser::{Command, Parse};
 use crate::small;
+use openfile;
 /*pub fn run(text: Vec<String>) {
     let mut vars = var::new();
     let mut funs = fun::new();
@@ -307,6 +308,18 @@ pub fn inter_back(size: [usize; 2], code: Parse, vars: &mut Var) {
                 }
             },
             Command::MkvS(a) => vars.new_var_string(&a[0], &a[1]),
+            Command::MakeFile (a,b) => {
+                openfile::writeFile(&small::get_value(a,vars.clone()),&small::get_value(b,vars.clone()));
+            }
+            Command::MakeFolder (a) =>{
+                use std::fs;
+
+                fn make_dir(folder: String) -> std::io::Result<()> {
+                    fs::create_dir(folder)?;
+                    Ok(())
+                }
+                make_dir(a).unwrap();
+            }
             Command::Misc(_) => {}
             _ => {
                 panic!("function not found");

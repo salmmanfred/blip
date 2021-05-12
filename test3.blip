@@ -15,5 +15,7 @@ DEL #MEM:1
 FN_STOP
 
 
-LOOP test 0 #MEM:x x
+LOOP test 1 #MEM:x x
 DEL #MEM:x
+MKFO test
+MKFI test/test.txt it is working
